@@ -1,0 +1,15 @@
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\bin\Debug\WPF.ToDoITem.exe.config
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\bin\Debug\WPF.ToDoITem.exe
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\bin\Debug\WPF.ToDoITem.pdb
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.csprojResolveAssemblyReference.cache
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\MainWindow.g.cs
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\App.g.cs
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem_MarkupCompile.cache
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem_MarkupCompile.lref
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\MainWindow.baml
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.g.resources
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.Properties.Resources.resources
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.csproj.GenerateResource.Cache
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.csproj.CoreCompileInputs.cache
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.exe
+C:\Users\psmak\Documents\GitHub\ToDoItem_Example\WPF.ToDoITem\obj\Debug\WPF.ToDoITem.pdb
