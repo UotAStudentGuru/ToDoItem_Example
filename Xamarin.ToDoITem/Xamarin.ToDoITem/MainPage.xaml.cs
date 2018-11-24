@@ -22,7 +22,7 @@ namespace Xamarin.ToDoITem
             String default_password = "admin";
             if(username.Text.Equals(default_name) && password.Text.Equals(default_password))
             {
-                await this.Navigation.PushAsync(new ListPage(),true);
+                await this.Navigation.PushAsync(new AddItem(),true);
             }
             else
             {
