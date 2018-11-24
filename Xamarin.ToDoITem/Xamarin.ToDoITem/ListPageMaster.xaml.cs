@@ -36,7 +36,8 @@ namespace Xamarin.ToDoITem
                 {
                     new ListPageMenuItem { Id = 0, Title = "Add Item", TargetType=typeof(AddItem)  },
                     new ListPageMenuItem { Id = 1, Title = "Logout", TargetType=typeof(MainPage) },
-                    
+                    new ListPageMenuItem { Id = 1, Title = "My Tasks", TargetType=typeof(ListPage) },
+
                 });
             }
             
