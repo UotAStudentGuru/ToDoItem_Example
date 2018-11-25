@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <DockPanel LastChildFill="True">
+            <DockPanel LastChildFill="True">
+                <Grid DockPanel.Dock="Bottom" Margin="8,0,8,8">
+                    <Button x:Name="addButton" Content="Add" Width="80" Height="36" HorizontalAlignment="Left" />
+                    <Button x:Name="deleteButton" Content="Delete" Width="80" Height="36" HorizontalAlignment="Right" />
+                </Grid>
+                <ListView x:Name="masterList" Width="200" Margin="0,0,0,16"></ListView>
+            </DockPanel>
+            <Grid x:Name="detailView" Margin="10">
+                <TextBlock Text="Item Name:" Margin="0,20,0,0" Width="66" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="textField" Margin="70,16,10,0" Height="26" VerticalAlignment="Top" />
+
+                <TextBlock Text="Done?" Margin="0,66,0,0" Width="66" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <CheckBox x:Name="isDoneCheckbox" Margin="69,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
