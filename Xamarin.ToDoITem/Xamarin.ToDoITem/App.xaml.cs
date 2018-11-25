@@ -13,7 +13,7 @@ namespace Xamarin.ToDoITem
 		{
 			InitializeComponent();
 
-			MainPage = new Xamarin.ToDoITem.MainPage();
+            MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()
