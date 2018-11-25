@@ -12,6 +12,22 @@ namespace Xamarin.ToDoITem
 		public MainPage()
 		{
 			InitializeComponent();
-		}
-	}
+            NavigationPage.SetHasNavigationBar(this, false);
+
+        }
+
+        private async void Login_Clicked(object sender, EventArgs e)
+        {
+            String default_name ="admin";
+            String default_password = "admin";
+            if(username.Text.Equals(default_name) && password.Text.Equals(default_password))
+            {
+                await this.Navigation.PushAsync(new AddItem(),true);
+            }
+            else
+            {
+                error.Text = "Wrong Username/Password Combination";
+            }
+        }
+    }
 }
