@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xamarin.ToDoITem"
+             x:Class="Xamarin.ToDoITem.MainPage">
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+        <Label Text="Welcome to our ToDoList" FontSize="Large" HorizontalOptions="Center"/>
+        <Label/>
+        <Image Source="drawable/logo.png" Scale="0.7" />
+        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label HorizontalOptions="Center" Text="Insert your Username and password"/>
+            <Entry x:Name="username" Placeholder="username"/>
+            <Entry x:Name="password" Placeholder="password" IsPassword="True"/>
+            <Label x:Name="error" TextColor="Red"/>
+            <Button HorizontalOptions="Center" Text="Login" x:Name="Login" Clicked="Login_Clicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
