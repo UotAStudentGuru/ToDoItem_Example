@@ -14,13 +14,14 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.ToDoITem.SQLite;
 
 namespace Xamarin.ToDoITem.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App : Application, ISqliteManage
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -30,6 +31,13 @@ namespace Xamarin.ToDoITem.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            ToDoITem.App.Init(this);
+        }
+
+        public string DatabaseFolder()
+        {
+            return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ToDoItemSQLite.db3");
         }
 
         /// <summary>
