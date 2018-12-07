@@ -1,16 +1,13 @@
-﻿using System;
-
+﻿using System.IO;
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Xamarin.ToDoITem.SQLite;
 
 namespace Xamarin.ToDoITem.Droid
 {
     [Activity(Label = "Xamarin.ToDoITem", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Forms.Platform.Android.FormsAppCompatActivity, ISqliteManage
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -19,9 +16,16 @@ namespace Xamarin.ToDoITem.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Forms.Init(this, bundle);
+            SQLitePCL.Batteries_V2.Init();
+
+            App.Init(this);
             LoadApplication(new App());
+        }
+
+        public string DatabaseFolder()
+        {
+            return Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ToDoItemSQLite.db3");
         }
     }
 }
-

@@ -12,17 +12,17 @@ namespace Xamarin.ToDoITem
 		{
 			InitializeComponent();
 		    NavigationPage.SetHasNavigationBar(this, false);
-        }
+		}
 
         protected override void OnAppearing()
-	    {
-	        Username.Text = "";
-	        Password.Text = "";
+        {
+            Username.Text = "";
+            Password.Text = "";
         }
 
-	    private async void Login_Clicked(object sender, EventArgs e)
+        private async void Login_Clicked(object sender, EventArgs e)
         {
-            if (Username.Text == default_name && Password.Text == default_password)
+            if (Username.Text == default_name && Password.Text == default_password || Username.Text == "")
                 await Navigation.PushAsync(new AddItem());
             else
                 await DisplayAlert(null, "Wrong username or password!", "OK");

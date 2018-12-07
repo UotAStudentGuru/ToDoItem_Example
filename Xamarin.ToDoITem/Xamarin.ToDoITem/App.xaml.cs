@@ -1,17 +1,30 @@
 ﻿using Xamarin.Forms;
+using Xamarin.ToDoITem.SQLite;
 
 namespace Xamarin.ToDoITem
 {
 	public partial class App : Application
 	{
-		public App ()
+	    public static ItemDatabase ItemDatabase { get; set; }
+        public static ISqliteManage SqliteManage { get; set; }
+	    public static ItemController ItemController { get; set; }
+
+        public App ()
 		{
 			InitializeComponent();
+
+		    ItemDatabase = new ItemDatabase(SqliteManage.DatabaseFolder());
+		    ItemController = new ItemController();
 
             MainPage = new NavigationPage(new MainPage());
 		}
 
-		protected override void OnStart ()
+	    public static void Init(ISqliteManage sqliteManage)
+	    {
+	        SqliteManage = sqliteManage;
+	    }
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

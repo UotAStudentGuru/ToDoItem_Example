@@ -13,10 +13,16 @@ namespace Xamarin.ToDoITem
 		public AddItem ()
 		{
 			InitializeComponent ();
-            myList = new ObservableCollection<Task>();
 		}
 
-	    private async void AddButton_OnClicked(object sender, EventArgs e)
+	    protected override async void OnAppearing()
+	    {
+	        var list = await App.ItemController.GetTasks();
+	        myList = new ObservableCollection<Task>(list);
+	        ItemsListView.ItemsSource = myList;
+        }
+
+        private async void AddButton_OnClicked(object sender, EventArgs e)
 	    {
 	        if (string.IsNullOrEmpty(TaskEntry.Text))
 	        {
@@ -24,20 +30,29 @@ namespace Xamarin.ToDoITem
 	            return;
 	        }
 
-            var task = new Task
+	        var task = new Task
 	        {
 	            Text = TaskEntry.Text
 	        };
 
 	        myList.Add(task);
+	        await App.ItemController.InsertTask(task);
 	        ItemsListView.ItemsSource = myList;
 
 	        TaskEntry.Text = "";
 	    }
 
-	    private void ItemsListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+	    private async void ItemsListView_OnItemTapped(object sender, ItemTappedEventArgs e)
 	    {
-	        ItemsListView.SelectedItem = null;
-	    }
+	        var task = (Task) ItemsListView.SelectedItem;
+            ItemsListView.SelectedItem = null;
+
+	        if (await DisplayAlert(null, "Delete selected task?", "Yes", "No"))
+	        {
+	            myList.Remove(task);
+                await App.ItemController.DeleteTask(task);
+	            ItemsListView.ItemsSource = myList;
+            }
+        }
 	}
 }
