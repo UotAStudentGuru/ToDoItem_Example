@@ -3,30 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin.ToDoITem.AddItem">
 
-    <StackLayout>
-        <Grid VerticalOptions="Start">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Text="Insert a new Task:" FontSize="Large"/>
-            <Switch></Switch>
-            <Entry Grid.Row="0" Grid.Column="1" x:Name="TaskEntry" Placeholder="Task" HorizontalOptions="FillAndExpand"/>
-            <Button Grid.Row="0" Grid.Column="2" Text="Add" Clicked="addbutton"/>
-        </Grid>
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Label Text="Insert a new task:" FontSize="Large" VerticalOptions="Center"/>
+            <Entry x:Name="TaskEntry" Placeholder="Task" FontSize="Large" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+        </StackLayout>
 
-        <ListView x:Name="listviewObject"  >
+        <Button Grid.Row="1" Text="Add" Clicked="AddButton_OnClicked"/>
+
+        <StackLayout Grid.Row="2" BackgroundColor="#2196F3" HeightRequest="2"/>
+
+        <ListView Grid.Row="3" x:Name="ItemsListView" ItemTapped="ItemsListView_OnItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Task}" ></TextCell>
+                    <ViewCell>
+                        <Label Text="{Binding Text}" FontSize="Large"/>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
-    
+    </Grid>
 </ContentPage>

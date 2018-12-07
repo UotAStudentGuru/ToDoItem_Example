@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,21 +8,36 @@ namespace Xamarin.ToDoITem
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddItem : ContentPage
 	{
-        ObservableCollection<TasksClass> myList;
+        public ObservableCollection<Task> myList;
+
 		public AddItem ()
 		{
 			InitializeComponent ();
-            myList = new ObservableCollection<TasksClass>();
+            myList = new ObservableCollection<Task>();
 		}
 
-        public void addbutton(object sender, EventArgs e)
-        {
-            var myObj = new TasksClass
-            {
-                Task = TaskEntry.Text
-            };
-            myList.Add(myObj);
-            listviewObject.ItemsSource = myList;
-        }
-    }
+	    private async void AddButton_OnClicked(object sender, EventArgs e)
+	    {
+	        if (string.IsNullOrEmpty(TaskEntry.Text))
+	        {
+	            await DisplayAlert(null, "Cannot add empty task!", "OK");
+	            return;
+	        }
+
+            var task = new Task
+	        {
+	            Text = TaskEntry.Text
+	        };
+
+	        myList.Add(task);
+	        ItemsListView.ItemsSource = myList;
+
+	        TaskEntry.Text = "";
+	    }
+
+	    private void ItemsListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+	    {
+	        ItemsListView.SelectedItem = null;
+	    }
+	}
 }
